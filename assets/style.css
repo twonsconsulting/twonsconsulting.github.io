@@ -1,9 +1,11 @@
 /* ============================================
-   Two Ns Consulting — Website Styles
+   Two Ns Consulting — Sticky Tiles
    Colors from logo:
    - Purple: #6B3FA0
    - Dark teal-blue: #2B6B8A
    ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --purple: #6B3FA0;
@@ -19,141 +21,65 @@
     --gray: #6B6B7B;
     --gray-dark: #2D2D3D;
     --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+
+    --r-sm: 8px;
+    --r-md: 16px;
+    --r-lg: 24px;
+    --r-xl: 32px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: var(--font-main);
     color: var(--gray-dark);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-.container {
+.wrap {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
 }
 
-/* ---- Watermark Logo Background ---- */
+.centered { text-align: center; }
 
-section {
-    position: relative;
-    overflow: hidden;
-}
-
-.bg-logo {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background-image: url('images/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Alternate left/right positioning */
-.hero .bg-logo {
-    right: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.services .bg-logo {
-    left: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.04;
-}
-
-.experience .bg-logo {
-    right: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.about .bg-logo {
-    left: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.04;
-}
-
-.contact .bg-logo {
-    right: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-section > .container,
-section > .hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-/* ---- Navigation ---- */
+/* ---- Nav ---- */
 
 nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
-    padding: 16px 0;
-    transition: all 0.3s ease;
-}
-
-nav.scrolled {
+    z-index: 200;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
+.nav-inner {
+    max-width: 100%;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 64px;
+}
+
+.nav-left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--purple-dark);
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-.nav-logo img {
-    height: 36px;
-    width: auto;
 }
 
 .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 28px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--gray-dark);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 400;
     transition: color 0.2s;
 }
@@ -162,6 +88,40 @@ nav.scrolled {
     color: var(--purple);
 }
 
+.nav-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-logo-img {
+    height: 44px;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-cta {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--r-xl);
+    transition: all 0.15s;
+}
+
+.nav-cta:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* hamburger */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -179,33 +139,72 @@ nav.scrolled {
     transition: all 0.3s;
 }
 
-.nav-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- Stacking tiles ---- */
+
+.stack {
+    position: relative;
 }
 
-.nav-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ---- Top Banner (the full-screen landing section with logo, title, tagline) ---- */
-
-.hero {
+.tile {
+    position: sticky;
+    top: 0;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-    background: var(--off-white);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.12);
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
 }
 
-.hero-content {
+/* z-index: each tile covers the previous */
+.tile:nth-child(1) { z-index: 1; border-radius: 0; }
+.tile:nth-child(2) { z-index: 2; }
+.tile:nth-child(3) { z-index: 3; }
+.tile:nth-child(4) { z-index: 4; }
+.tile:nth-child(5) { z-index: 5; }
+.tile:nth-child(6) { z-index: 6; }
+.tile:nth-child(7) { z-index: 7; }
+.tile:nth-child(8) { z-index: 8; }
+.tile:nth-child(9) { z-index: 9; }
+
+/* Alternating backgrounds */
+.tile:nth-child(odd)  { background: var(--white); }
+.tile:nth-child(even) { background: var(--off-white); }
+
+/* ---- Watermark Logo Background ---- */
+.tile .bg-logo {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tile:nth-child(odd) .bg-logo  { right: -100px; }
+.tile:nth-child(even) .bg-logo { left: -100px; opacity: 0.04; }
+
+.tile > .wrap {
     position: relative;
     z-index: 1;
+}
+
+/* ---- Hero tile ---- */
+
+.hero-tile {
+    background: var(--off-white) !important;
+    text-align: center;
+    padding: 80px 28px;
 }
 
 .hero-logo {
@@ -214,7 +213,7 @@ nav.scrolled {
     margin-bottom: 24px;
 }
 
-.hero h1 {
+.hero-tile h1 {
     font-size: 3rem;
     font-weight: 700;
     color: var(--purple-dark);
@@ -242,7 +241,7 @@ nav.scrolled {
     background: var(--purple);
     color: var(--white);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: var(--r-xl);
     font-weight: 500;
     font-size: 1rem;
     transition: background 0.2s;
@@ -252,34 +251,12 @@ nav.scrolled {
     background: var(--purple-dark);
 }
 
-/* ---- Sections (general) ---- */
+/* ---- Stats tile ---- */
 
-section {
-    padding: 100px 0;
-}
-
-section h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--purple-dark);
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-.section-intro {
-    text-align: center;
-    color: var(--gray);
-    font-size: 1.1rem;
-    max-width: 640px;
-    margin: 0 auto 48px;
-}
-
-/* ---- Stats Banner ---- */
-
-.stats-banner {
-    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--blue-dark) 100%);
-    padding: 48px 0;
-    overflow: visible;
+.stats-tile {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--blue-dark) 100%) !important;
+    min-height: auto;
+    padding: 56px 0;
 }
 
 .stats-grid {
@@ -310,11 +287,31 @@ section h2 {
     font-weight: 400;
 }
 
-/* ---- Services ---- */
+/* ---- Section tiles (general) ---- */
 
-.services {
-    background: var(--white);
+.sec-tile {
+    padding: 80px 0;
+    width: 100%;
+    overflow: hidden;
 }
+
+.sec-tile h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple-dark);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.1rem;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+/* ---- Services ---- */
 
 .services-grid {
     display: grid;
@@ -330,6 +327,10 @@ section h2 {
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.tile:nth-child(even) .service-card {
+    background: var(--white);
 }
 
 .service-card:hover {
@@ -386,7 +387,7 @@ section h2 {
 
 .modal {
     background: var(--white);
-    border-radius: 8px;
+    border-radius: var(--r-md);
     padding: 40px;
     max-width: 640px;
     width: 100%;
@@ -464,10 +465,6 @@ section h2 {
 
 /* ---- Experience ---- */
 
-.experience {
-    background: var(--off-white);
-}
-
 .experience-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -514,10 +511,6 @@ section h2 {
 
 /* ---- Team ---- */
 
-.about {
-    background: var(--white);
-}
-
 .team-grid {
     display: flex;
     flex-direction: column;
@@ -531,8 +524,12 @@ section h2 {
     gap: 40px;
     padding: 36px;
     background: var(--off-white);
-    border-radius: 8px;
+    border-radius: var(--r-md);
     border-left: 4px solid var(--purple);
+}
+
+.tile:nth-child(even) .team-card {
+    background: var(--white);
 }
 
 .team-info h3 {
@@ -560,8 +557,12 @@ section h2 {
 .team-credentials {
     background: var(--white);
     padding: 24px;
-    border-radius: 6px;
+    border-radius: var(--r-sm);
     align-self: start;
+}
+
+.tile:nth-child(even) .team-credentials {
+    background: var(--off-white);
 }
 
 .team-credentials h4 {
@@ -588,45 +589,51 @@ section h2 {
 
 /* ---- Contact ---- */
 
-.contact {
-    background: var(--off-white);
+.contact-tile {
     text-align: center;
 }
 
-.contact p {
+.contact-tile p {
     color: var(--gray);
     font-size: 1.1rem;
     margin-bottom: 8px;
 }
 
-.contact-placeholder {
-    color: var(--gray);
-    font-style: italic;
+.contact-email {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--purple);
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: var(--r-xl);
+    transition: background 0.15s;
     margin-top: 16px;
+}
+
+.contact-email:hover {
+    background: var(--purple-dark);
 }
 
 /* ---- Footer ---- */
 
 footer {
+    position: relative;
+    z-index: 10;
     background: var(--gray-dark);
-    padding: 40px 0;
+    padding: 28px 0;
 }
 
 .footer-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.footer-logo {
-    height: 32px;
-    width: auto;
-    opacity: 0.7;
+    justify-content: center;
 }
 
 footer p {
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 /* ---- Fade-in on scroll ---- */
@@ -642,108 +649,43 @@ footer p {
     transform: translateY(0);
 }
 
-/* Stagger service cards */
 .service-card.fade-in:nth-child(2) { transition-delay: 0.1s; }
 .service-card.fade-in:nth-child(3) { transition-delay: 0.2s; }
 .service-card.fade-in:nth-child(4) { transition-delay: 0.3s; }
 .service-card.fade-in:nth-child(5) { transition-delay: 0.4s; }
 .service-card.fade-in:nth-child(6) { transition-delay: 0.5s; }
 
-/* Stagger stats */
 .stat.fade-in:nth-child(2) { transition-delay: 0.1s; }
 .stat.fade-in:nth-child(3) { transition-delay: 0.2s; }
 .stat.fade-in:nth-child(4) { transition-delay: 0.3s; }
 
-/* Stagger experience categories */
 .exp-category.fade-in:nth-child(2) { transition-delay: 0.1s; }
 .exp-category.fade-in:nth-child(3) { transition-delay: 0.2s; }
 .exp-category.fade-in:nth-child(4) { transition-delay: 0.3s; }
 
-
-/* ---- Section Dividers ---- */
-
-/* Angled transition from light to dark sections */
-.services::after,
-.about::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--off-white));
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Angled transition from dark to light sections */
-.experience::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--white));
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Top fade-in from stats banner */
-.services::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to top, transparent, var(--white));
-    z-index: 1;
-    pointer-events: none;
-}
-
-.experience::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to top, transparent, var(--off-white));
-    z-index: 1;
-    pointer-events: none;
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to top, transparent, var(--white));
-    z-index: 1;
-    pointer-events: none;
-}
-
-.contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(to top, transparent, var(--off-white));
-    z-index: 1;
-    pointer-events: none;
-}
-
 /* ---- Responsive ---- */
 
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
+    .tile {
+        min-height: auto;
+        border-radius: var(--r-lg) var(--r-lg) 0 0;
     }
+
+    .sec-tile { padding: 56px 0; }
+
+    .hero-tile { padding: 80px 28px 56px; }
+    .hero-tile h1 { font-size: 2.2rem; }
+    .tagline { font-size: 1.1rem; }
+
+    .stats-tile { padding: 40px 0; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .experience-grid { grid-template-columns: 1fr; }
+    .team-card { grid-template-columns: 1fr; }
+
+    .nav-inner { padding: 0 20px; }
+    .nav-logo-img { height: 30px; }
 
     .nav-links {
         display: none;
@@ -758,29 +700,10 @@ footer p {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    .nav-links.active {
-        display: flex;
-    }
+    .nav-links.active { display: flex; }
+    .nav-toggle { display: flex; }
 
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .tagline {
-        font-size: 1.1rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-card {
-        grid-template-columns: 1fr;
-    }
+    .nav-right { display: none; }
 
     .footer-content {
         flex-direction: column;
@@ -793,12 +716,5 @@ footer p {
         height: 300px !important;
     }
 
-    .modal {
-        padding: 28px;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-    }
+    .modal { padding: 28px; }
 }
