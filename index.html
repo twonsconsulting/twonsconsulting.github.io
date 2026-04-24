@@ -1,10 +1,42 @@
 <!DOCTYPE html>
+<!--
+    =====================================================================
+    PROPOSED DRAFT — NOT LIVE
+    =====================================================================
+    This file is a proposed replacement for index.html. It is NOT served
+    by GitHub Pages (which serves index.html). To enable:
+
+        1. Review and edit copy to taste.
+        2. Rename current index.html to index-legacy.html (keep as backup).
+        3. Rename this file to index.html and commit.
+
+    Source material for the repositioning:
+        4_market_research_and_ideas/2NS_ValueProp_BusinessModel.md
+        4_market_research_and_ideas/2NS_Strengths_Weaknesses_7Powers.md
+        4_market_research_and_ideas/2NS_Real_Modelling_Rarity_Note.md
+
+    Key shifts vs. current site:
+      - Hero repositioned from "defensible decisions for gov/legal/industry"
+        to "defensible decisions require real modelling, not a language model"
+      - Adds a "Before you hire an AI firm" qualifying-questions section
+        (Angle B from the Real Modelling note — disqualifies wrapper shops)
+      - Adds a "What real modelling looks like" methodology section
+        (Bayesian / graph / multi-agent / uncertainty quantification)
+      - Services re-ordered and rewritten to lead with the evaluation /
+        analytical framing so IP/VC/M&A visitors feel addressed
+      - Adds "Investment & Deal Analytics" service card (SANNT / comps pivot)
+      - Adds proof-point / case-study section with anonymised SANNT
+      - Adds "Investment & Evaluation" row to Experience
+      - Keeps every existing CSS class and JS hook so the stylesheet and
+        modal/nav behaviour work unchanged.
+    =====================================================================
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two Ns Consulting | AI, Machine Learning &amp; Statistical Consulting</title>
-    <meta name="description" content="Two Ns Consulting LLC provides AI, machine learning, and statistical consulting services for government, legal, and industry clients.">
+    <title>Two Ns Consulting | Real Modelling for Defensible Decisions</title>
+    <meta name="description" content="Two Ns Consulting LLC brings real Bayesian inference, graph models, multi-agent AI, and uncertainty quantification to clients whose decisions must hold up under audit, litigation, or investment-committee review.">
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -15,6 +47,9 @@
             <div class="nav-left">
                 <div class="nav-links">
                     <a href="#services">Services</a>
+                    <a href="#questions">Questions to Ask</a>
+                    <a href="#methodology">Methodology</a>
+                    <a href="#proof">Proof Points</a>
                     <a href="#experience">Experience</a>
                     <a href="#about">Team</a>
                 </div>
@@ -41,9 +76,9 @@
         <div class="wrap centered">
             <img src="assets/images/logo.png" alt="Two Ns Consulting" class="hero-logo">
             <h1>Two Ns Consulting</h1>
-            <p class="tagline">Artificial Intelligence, Machine Learning &amp; Statistical Consulting</p>
-            <p class="hero-sub">We turn complex data into defensible decisions for government, legal, and industry clients.</p>
-            <a href="#services" class="cta-button">Our Services</a>
+            <p class="tagline">Defensible decisions require real modelling &mdash; not just a language model.</p>
+            <p class="hero-sub">We bring Bayesian inference, graph models, multi-agent AI, and uncertainty quantification to clients whose outputs must hold up under audit, cross-examination, or an investment committee.</p>
+            <a href="#services" class="cta-button">How We Work</a>
         </div>
     </section>
 
@@ -53,11 +88,11 @@
             <div class="stats-grid">
                 <div class="stat">
                     <span class="stat-number">20+</span>
-                    <span class="stat-label">Years Experience</span>
+                    <span class="stat-label">Years Applied Statistics</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">50+</span>
-                    <span class="stat-label">Publications</span>
+                    <span class="stat-label">Peer-Reviewed Publications</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">7</span>
@@ -71,49 +106,189 @@
         </div>
     </section>
 
+    <!-- QUESTIONS TO ASK ANY AI FIRM (Angle B) -->
+    <section id="questions" class="sec-tile tile">
+        <div class="bg-logo"></div>
+        <div class="wrap">
+            <h2>Before You Hire an AI Firm</h2>
+            <p class="section-intro">&ldquo;AI company&rdquo; is one of the least informative labels in B2B today. Most firms using the term build wrappers around off-the-shelf language models. That is fine for some problems &mdash; and completely wrong for others. Here are four questions that separate firms that can actually model from firms that cannot.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>1. How do you quantify uncertainty?</h3>
+                    <p>And how do you validate those uncertainty estimates? If the answer is a point estimate with no calibration, the output will not hold up under scrutiny.</p>
+                </div>
+                <div class="service-card">
+                    <h3>2. Can the methodology survive cross-examination?</h3>
+                    <p>Every score, ranking, or prediction should be traceable to a documented method. If it cannot be explained end-to-end, it cannot be defended.</p>
+                </div>
+                <div class="service-card">
+                    <h3>3. What happens when the model disagrees with a domain expert?</h3>
+                    <p>Reconciling a model and an expert requires understanding both. Firms without domain credentials cannot do this honestly.</p>
+                </div>
+                <div class="service-card">
+                    <h3>4. What would an audit record look like?</h3>
+                    <p>Regulators, courts, and investment committees do not accept &ldquo;the AI said so.&rdquo; The inputs, reasoning, and assumptions must be preserved and reviewable.</p>
+                </div>
+            </div>
+
+            <p class="section-intro" style="margin-top:2rem;">We give defensible answers to all four &mdash; and have done so in federal court, for federal agencies, and for private investment funds.</p>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY — "What real modelling looks like" -->
+    <section id="methodology" class="sec-tile tile">
+        <div class="bg-logo"></div>
+        <div class="wrap">
+            <h2>What Real Modelling Looks Like</h2>
+            <p class="section-intro">Our work combines classical statistical rigour with modern AI engineering. The methods below are not bullet points on a slide &mdash; they are the daily tools we use on live engagements.</p>
+
+            <div class="experience-grid">
+                <div class="exp-category">
+                    <h3>Bayesian Inference &amp; Uncertainty</h3>
+                    <ul>
+                        <li>Hierarchical models and MCMC with convergence diagnostics</li>
+                        <li>Prior elicitation and sensitivity analysis</li>
+                        <li>Posterior predictive checks and calibration</li>
+                        <li>Identifiability and informative-prior reasoning</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Graph &amp; Probabilistic Models</h3>
+                    <ul>
+                        <li>Bayesian networks and probabilistic graphical models</li>
+                        <li>Graph neural networks for relational and sensor data</li>
+                        <li>Message-passing inference and causal DAGs</li>
+                        <li>Principled choice between graph learning and graph inference</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Multi-Agent &amp; Agentic AI</h3>
+                    <ul>
+                        <li>Orchestrator &rarr; Planner &rarr; Specialists &rarr; Compiler pipelines</li>
+                        <li>Structured scoring rubrics with sensitivity analysis on weights</li>
+                        <li>Persona-based analytics for team decision-making</li>
+                        <li>Human-in-the-loop validation at every critical step</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Production Machine Learning</h3>
+                    <ul>
+                        <li>Deep learning for regression, classification, and generative tasks</li>
+                        <li>Gaussian process regression for uncertainty-aware predictions</li>
+                        <li>Chemometrics and multivariate analysis</li>
+                        <li>Model validation, explainability, and deployment support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SERVICES -->
     <section id="services" class="sec-tile tile">
         <div class="bg-logo"></div>
         <div class="wrap">
             <h2>Services</h2>
+            <p class="section-intro">We work across four overlapping problem families. In every one, the deliverable is an auditable, methodology-backed output &mdash; not a demo.</p>
+
             <div class="services-grid">
 
+                <div class="service-card" data-modal="modal-eval">
+                    <h3>Evaluation &amp; Scoring Frameworks</h3>
+                    <p>Multi-agent AI systems that triage and evaluate complex assets &mdash; technology disclosures, litigation case files, deal flow &mdash; against structured, defensible rubrics.</p>
+                    <span class="learn-more">Learn more &rarr;</span>
+                </div>
+
+                <div class="service-card" data-modal="modal-invest">
+                    <h3>Investment &amp; Deal Analytics</h3>
+                    <p>Bayesian methods for undisclosed-deal valuation, acquisition comp construction, and portfolio benchmarking &mdash; with calibrated uncertainty and audit-ready reasoning.</p>
+                    <span class="learn-more">Learn more &rarr;</span>
+                </div>
+
                 <div class="service-card" data-modal="modal-ai">
-                    <h3>Agentic AI</h3>
-                    <p>AI agent systems that automate complex workflows &mdash; document ingestion, data extraction, and natural language querying.</p>
+                    <h3>Agentic AI for Expert Domains</h3>
+                    <p>Autonomous AI systems that do the finding, organising, and triage work &mdash; so your experts spend their time on judgment, not on page-turning.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
                 <div class="service-card" data-modal="modal-ml">
                     <h3>Machine Learning</h3>
-                    <p>Predictive modelling using deep learning, graph neural networks, Gaussian process regression, and other advanced techniques.</p>
+                    <p>Deep learning, graph neural networks, and Gaussian process regression with interpretability, validation, and production-readiness built in &mdash; not bolted on.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
                 <div class="service-card" data-modal="modal-stats">
                     <h3>Statistical Consulting</h3>
-                    <p>Bayesian inference, predictive analytics, chemometrics, and probabilistic modelling with defensible reporting.</p>
+                    <p>Bayesian inference, uncertainty quantification, sensitivity analysis, experimental design, and chemometrics &mdash; reported for both technical and non-technical stakeholders.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
                 <div class="service-card" data-modal="modal-expert">
                     <h3>Expert Testimony</h3>
-                    <p>Statistical expert witness services for criminal and civil litigation, including discrimination cases and forensic evidence.</p>
+                    <p>Statistical and methodological expert witness services in criminal and civil litigation &mdash; forensic evidence, discrimination, and AI-system evaluation.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
                 <div class="service-card" data-modal="modal-forensic">
                     <h3>Forensic Science</h3>
-                    <p>Probabilistic modelling for evidence evaluation, biometric identification, and pattern evidence research.</p>
+                    <p>Probabilistic evidence interpretation, biometric system validation, and likelihood-ratio frameworks for pattern evidence.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
                 <div class="service-card" data-modal="modal-sim">
                     <h3>Simulation &amp; Modelling</h3>
-                    <p>Agent-based models and discrete event simulations for healthcare, policy evaluation, and infrastructure risk.</p>
+                    <p>Agent-based models and discrete event simulations for healthcare, policy evaluation, and infrastructure-risk scenarios.</p>
                     <span class="learn-more">Learn more &rarr;</span>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF POINTS -->
+    <section id="proof" class="sec-tile tile">
+        <div class="bg-logo"></div>
+        <div class="wrap">
+            <h2>Proof Points</h2>
+            <p class="section-intro">A sample of the work, with client-specifics anonymised where reference permission is still pending.</p>
+
+            <div class="experience-grid">
+                <div class="exp-category">
+                    <h3>Investment Evaluation &mdash; Ophthalmic Fund</h3>
+                    <ul>
+                        <li>Multi-agent AI system evaluating technology assets across 7 domains</li>
+                        <li>70-question rubric with weighted scoring and sensitivity analysis</li>
+                        <li>Auditable reasoning for every score and ranking</li>
+                        <li>Replaces weeks of analyst triage with hours of reviewable output</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Forensic Litigation &mdash; Case Retrieval</h3>
+                    <ul>
+                        <li>AI-powered document retrieval across thousands of pages</li>
+                        <li>Natural-language queries across discovery corpora</li>
+                        <li>Built for public defenders and litigation experts</li>
+                        <li>Designed for defensibility under cross-examination</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Federal Agencies</h3>
+                    <ul>
+                        <li>DOJ Forensic Science Discipline Review &mdash; Statistician</li>
+                        <li>NIST OSAC contributions on standards and methodology</li>
+                        <li>NIJ Standing Review Panel for pattern evidence</li>
+                        <li>Long-running relationships with DHS and the Secret Service</li>
+                    </ul>
+                </div>
+                <div class="exp-category">
+                    <h3>Expert Testimony</h3>
+                    <ul>
+                        <li>Federal and state court testimony in criminal and civil matters</li>
+                        <li>Work with Federal Public Defenders and the Innocence Project</li>
+                        <li>Employment discrimination &mdash; disparate impact and pay equity</li>
+                        <li>Methodology review and critique of opposing experts</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -123,7 +298,7 @@
         <div class="bg-logo"></div>
         <div class="wrap">
             <h2>Experience</h2>
-            <p class="section-intro">Over 20 years of applied statistics and AI/ML consulting across government, legal, scientific, and commercial sectors.</p>
+            <p class="section-intro">Over 20 years of applied statistics and AI/ML consulting across government, legal, scientific, investment, and commercial sectors.</p>
 
             <div class="experience-grid">
                 <div class="exp-category">
@@ -136,6 +311,16 @@
                         <li>U.S. Navy</li>
                         <li>U.S. Secret Service</li>
                         <li>Government of Mexico</li>
+                    </ul>
+                </div>
+
+                <div class="exp-category">
+                    <h3>Investment &amp; Evaluation</h3>
+                    <ul>
+                        <li>Investment accelerator &mdash; technology-asset evaluation</li>
+                        <li>Ophthalmic investment fund &mdash; multi-agent triage (under NDA)</li>
+                        <li>Acquisition-comparable estimation with uncertainty bounds</li>
+                        <li>Technology transfer office support (framework design)</li>
                     </ul>
                 </div>
 
@@ -185,7 +370,7 @@
                     <div class="team-info">
                         <h3>Cedric Neumann, PhD</h3>
                         <span class="team-role">Founder &amp; Principal Consultant</span>
-                        <p>Applied statistician with over 20 years of experience delivering AI, machine learning, and statistical solutions for government agencies, legal teams, research institutions, and commercial clients.</p>
+                        <p>Applied statistician with over 20 years of experience delivering AI, machine learning, and statistical solutions for government agencies, legal teams, research institutions, investment funds, and commercial clients.</p>
                         <p>PhD in Forensic Science (magna cum laude) from the University of Lausanne, Switzerland. Former positions at Battelle Memorial Institute, South Dakota State University, Penn State University, and the UK Forensic Science Service.</p>
                         <p>Served on advisory bodies including the U.S. Department of Justice Forensic Science Discipline Review, the National Commission on Forensic Science, and NIST Organisation of Scientific Area Committees. Editorial boards for <em>Forensic Science International</em>, <em>Law, Probability and Risk</em>, and the <em>Journal of Forensic Identification</em>.</p>
                     </div>
@@ -211,7 +396,7 @@
         <div class="bg-logo"></div>
         <div class="wrap centered">
             <h2>Contact</h2>
-            <p>Interested in working together? Get in touch.</p>
+            <p>Working on a problem where the answer has to be defensible? Let's talk.</p>
             <a href="mailto:info@twons.co?subject=Inquiry" class="contact-email">info@twons.co</a>
         </div>
     </section>
@@ -219,18 +404,64 @@
     </main>
 
     <!-- Service Modals -->
+    <div class="modal-overlay" id="modal-eval">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h3>Evaluation &amp; Scoring Frameworks</h3>
+            <p>We design multi-agent AI systems that ingest complex source material &mdash; technology disclosures, litigation case files, deal flow &mdash; and produce structured, defensible evaluations against a calibrated rubric. Every score has reasoning. Every ranking has methodology. Every output is auditable.</p>
+            <h4>Capabilities</h4>
+            <ul>
+                <li>Custom rubric design tailored to how your analysts actually think</li>
+                <li>Multi-agent orchestration (Orchestrator / Planner / Specialists / Compiler)</li>
+                <li>Sensitivity analysis on weights &mdash; how much does the ranking change under reasonable perturbations?</li>
+                <li>Persona-based scoring so a single engine serves multiple decision-makers</li>
+                <li>Human-in-the-loop validation and override tracking</li>
+            </ul>
+            <h4>Representative Work</h4>
+            <ul>
+                <li>Multi-agent technology-asset evaluation system for an ophthalmic investment fund (anonymised)</li>
+                <li>7-domain, 70-question rubric replacing weeks of analyst triage</li>
+                <li>Framework design work for an investment accelerator</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-invest">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <h3>Investment &amp; Deal Analytics</h3>
+            <p>Valuation, comp construction, and portfolio benchmarking are hard when half the comparable deals are undisclosed. We apply Bayesian methods to estimate unobserved deal values from correlated partial observations (aggregate cash flows, qualitative ranges, disclosed comparables) and report results with honest, calibrated uncertainty &mdash; the kind that survives an investment committee.</p>
+            <h4>Capabilities</h4>
+            <ul>
+                <li>Bayesian estimation of undisclosed deal values with posterior intervals</li>
+                <li>Acquisition-comparable curation with validated uncertainty bounds</li>
+                <li>Portfolio-exit benchmarking for VC and LP use</li>
+                <li>Fairness-opinion and comp-report analytics for M&amp;A advisors</li>
+                <li>Technology-transfer-office evaluation support (Bayh-Dole / DOC march-in contexts)</li>
+            </ul>
+            <h4>Who We Work With</h4>
+            <ul>
+                <li>Venture capital funds and investment accelerators</li>
+                <li>Founders preparing for acquisition</li>
+                <li>M&amp;A advisors and corporate development teams</li>
+                <li>University technology transfer offices</li>
+                <li>Limited partners evaluating fund performance</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="modal-ai">
         <div class="modal">
             <button class="modal-close">&times;</button>
-            <h3>Agentic AI</h3>
-            <p>We design and build AI agent systems that automate complex, multi-step workflows that previously required extensive manual effort. Our solutions connect AI models to your existing infrastructure &mdash; databases, document stores, dashboards &mdash; so they can act autonomously while keeping humans in the loop for critical decisions.</p>
+            <h3>Agentic AI for Expert Domains</h3>
+            <p>We design and build AI agent systems that automate the information work &mdash; finding, organising, ingesting, querying &mdash; that currently eats most of an expert's week. Our systems connect to existing infrastructure (databases, document stores, dashboards) and keep humans in the loop for judgment calls.</p>
             <h4>Capabilities</h4>
             <ul>
-                <li>Model Context Protocol (MCP) frameworks connecting AI agents to Power BI, SQL databases, and enterprise systems</li>
-                <li>Document ingestion pipelines that extract, curate, and validate data automatically</li>
-                <li>Natural language interfaces for querying structured data and archived records</li>
-                <li>Causal process flow construction for policy analysis and complex interventions</li>
-                <li>Multi-agent orchestration for evaluation, scoring, and decision-support workflows</li>
+                <li>Model Context Protocol (MCP) frameworks connecting AI agents to Power BI, SQL, and enterprise systems</li>
+                <li>Document ingestion pipelines with extraction, curation, and validation</li>
+                <li>Natural language interfaces over structured data and archived records</li>
+                <li>Causal process flow construction for policy analysis and interventions</li>
+                <li>Multi-agent orchestration for evaluation, scoring, and decision support</li>
             </ul>
             <h4>Representative Work</h4>
             <ul>
@@ -245,7 +476,7 @@
         <div class="modal">
             <button class="modal-close">&times;</button>
             <h3>Machine Learning</h3>
-            <p>We develop and deploy machine learning models tailored to your domain &mdash; from materials science to defence applications. Our approach emphasises interpretability, validation, and production readiness, not just model accuracy.</p>
+            <p>We develop and deploy machine learning models tailored to your domain &mdash; from materials science to defence to investment evaluation. Our approach emphasises interpretability, validation, and production readiness, not just benchmark accuracy.</p>
             <h4>Capabilities</h4>
             <ul>
                 <li>Deep learning for regression and classification on structured and unstructured data</li>
@@ -268,12 +499,12 @@
         <div class="modal">
             <button class="modal-close">&times;</button>
             <h3>Statistical Consulting</h3>
-            <p>We provide rigorous statistical analysis and modelling for clients who need results that are defensible, reproducible, and clearly communicated. Our work spans Bayesian inference, predictive analytics, and specialised techniques like chemometrics.</p>
+            <p>We provide rigorous statistical analysis and modelling for clients who need results that are defensible, reproducible, and clearly communicated. Our work spans Bayesian inference, predictive analytics, uncertainty quantification, and specialised techniques like chemometrics.</p>
             <h4>Capabilities</h4>
             <ul>
-                <li>Bayesian inferential and predictive modelling</li>
+                <li>Bayesian inferential and predictive modelling (MCMC, hierarchical, informative priors)</li>
+                <li>Uncertainty quantification and sensitivity analysis</li>
                 <li>Chemometrics and multivariate analysis for materials identification and tracking</li>
-                <li>Probabilistic modelling and uncertainty quantification</li>
                 <li>Experimental design and sample size determination</li>
                 <li>Statistical reporting for technical and non-technical stakeholders</li>
             </ul>
@@ -290,14 +521,15 @@
         <div class="modal">
             <button class="modal-close">&times;</button>
             <h3>Expert Testimony</h3>
-            <p>We provide expert witness services in statistics and scientific methodology for both criminal and civil proceedings. Our testimony is grounded in peer-reviewed methodology and presented in clear, accessible language for judges and juries.</p>
+            <p>We provide expert witness services in statistics, scientific methodology, and AI-system evaluation for both criminal and civil proceedings. Our testimony is grounded in peer-reviewed methodology and presented in clear, accessible language for judges and juries.</p>
             <h4>Areas of Expertise</h4>
             <ul>
                 <li>Forensic evidence interpretation and statistical weight of evidence</li>
                 <li>Employment discrimination analysis (disparate impact, pay equity)</li>
-                <li>Scientific methodology review and critique</li>
+                <li>Scientific methodology review and critique of opposing experts</li>
                 <li>Probability and statistics in legal contexts</li>
                 <li>Pattern and impression evidence (fingerprints, firearms, documents)</li>
+                <li>Evaluation of AI systems used in legal contexts (emerging practice)</li>
             </ul>
             <h4>Experience</h4>
             <ul>
