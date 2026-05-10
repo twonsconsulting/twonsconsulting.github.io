@@ -28,7 +28,8 @@
     --r-xl: 32px;
 }
 
-html { scroll-behavior: smooth; }
+/* Instant (not smooth) scroll — smooth scrolling over sticky-stacked tiles renders the wrong tile mid-animation when navigating upward, because higher-z-index tiles remain "stuck" until the animation completes. scroll-padding-top accounts for the fixed 64px nav. */
+html { scroll-behavior: auto; scroll-padding-top: 64px; }
 
 body {
     font-family: var(--font-main);
@@ -315,7 +316,7 @@ nav {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-top: 48px;
 }
